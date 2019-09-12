@@ -1,2 +1,11 @@
 name: ${self:custom.appsyncServiceName}
 authenticationType: ${self:custom.authenticationType}
+mappingTemplates:
+  - dataSource: ocrService
+    type: Query
+    field: getTextFromDocument
+    request: 'Function_getTextFromDocument.request.vtl'
+    response: 'Function_getTextFromDocument.response.vtl'
+
+serviceRole: 'testslsServiceRole'
+dataSources: '${file(settings/serverless/appsyncDataSources.yml):dataSources}'

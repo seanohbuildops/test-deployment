@@ -1,0 +1,7 @@
+## If there are any errors in the lambda function before hitting here,append the error and exit
+#if($ctx.error)
+    $utils.error($ctx.error.message, $ctx.error.message)
+    #return
+#end
+
+$util.toJson($context.result)

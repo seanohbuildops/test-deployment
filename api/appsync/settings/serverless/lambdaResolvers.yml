@@ -1,0 +1,2 @@
+ocrService:
+  handler: lambda/ocrService.handler

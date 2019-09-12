@@ -1,0 +1,6 @@
+dataSources:
+  - type: AWS_LAMBDA
+    name: ocrService
+    description: 'Google ocr service'
+    config:
+      lambdaFunctionArn: 'arn:aws:lambda:${opt:region, self:provider.region}:${self:custom.accountId}:function:testsls-${opt:stage, self:provider.stage}-ocrService'
