@@ -1,0 +1,2 @@
+name: ${self:custom.appsyncServiceName}
+authenticationType: ${self:custom.authenticationType}

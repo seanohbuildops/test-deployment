@@ -1,0 +1,15 @@
+org: seanohbuildops
+app: testapp
+service: testsls
+
+provider:
+  name: aws
+
+plugins:
+  - serverless-appsync-plugin
+  - serverless-plugin-split-stacks
+
+custom:
+  appsyncServiceName: testServerlessAppSync
+  authenticationType: AWS_IAM
+  appSync: '${file(settings/serverless/appsync.yml)}'
