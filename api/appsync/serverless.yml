@@ -7,6 +7,7 @@ provider:
   runtime: nodejs8.10
 
 plugins:
+  - serverless-webpack
   - serverless-appsync-plugin
   - serverless-plugin-split-stacks
 
@@ -14,6 +15,12 @@ custom:
   appsyncServiceName: testslsAppSync
   authenticationType: AMAZON_COGNITO_USER_POOLS
   userPoolId: us-east-1_ycHR3UNB1
+  webpack:
+    webpackConfig: webpack.config.js
+    includeModules: true
+    packager: yarn
+    packagerOptions:
+      noFrozenLockFile: true
   appSync: '${file(settings/serverless/appsync.yml)}'
   accountId: '669356653346'
 functions:

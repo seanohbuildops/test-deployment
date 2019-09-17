@@ -1,3 +1,5 @@
+import S3Helper from '../../../src/classes/utils/s3-helper/s3-helper-ocr';
+
 const vision = require('@google-cloud/vision');
 
 module.exports.handler = async (event, context) => {
