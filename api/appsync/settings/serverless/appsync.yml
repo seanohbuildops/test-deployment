@@ -1,5 +1,9 @@
 name: ${self:custom.appsyncServiceName}
 authenticationType: ${self:custom.authenticationType}
+userPoolConfig:
+  awsRegion: ${self:provider.region}
+  defaultAction: ALLOW
+  userPoolId: ${self:custom.userPoolId}
 mappingTemplates:
   - dataSource: ocrService
     type: Query

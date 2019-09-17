@@ -1,2 +1,3 @@
 ocrService:
+  runtime: nodejs10.x
   handler: lambda/ocrService.handler

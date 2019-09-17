@@ -4,6 +4,7 @@ service: testsls
 
 provider:
   name: aws
+  runtime: nodejs8.10
 
 plugins:
   - serverless-appsync-plugin
@@ -11,7 +12,8 @@ plugins:
 
 custom:
   appsyncServiceName: testslsAppSync
-  authenticationType: AWS_IAM
+  authenticationType: AMAZON_COGNITO_USER_POOLS
+  userPoolId: us-east-1_ycHR3UNB1
   appSync: '${file(settings/serverless/appsync.yml)}'
   accountId: '669356653346'
 functions:
