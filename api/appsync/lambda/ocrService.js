@@ -3,10 +3,10 @@ import S3Helper from '../../../src/classes/utils/s3-helper/s3-helper-ocr';
 const vision = require('@google-cloud/vision');
 
 module.exports.handler = async (event, context) => {
-  return extractData(event.imageUri);
+  return extractData(event.imageUrl);
 };
 
-const extractData = async (imageUri) => {
+const extractData = async (imageUrl) => {
   /*
   const credentials = {
     "client_email": process.env.GOOGLE_OCR_CLIENT_EMAIL,
@@ -18,7 +18,7 @@ const extractData = async (imageUri) => {
   };
   const client = new vision.ImageAnnotatorClient({ credentials });
 
-  const imageRequest = { image: { source: { imageUri }}};
+  const imageRequest = { image: { source: { imageUri: imageUrl }}};
 
   const [result] = await client.textDetection(imageRequest);
   const detections = result.textAnnotations;
