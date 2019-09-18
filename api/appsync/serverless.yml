@@ -4,7 +4,10 @@ service: testsls
 
 provider:
   name: aws
+  stage: dev
   runtime: nodejs8.10
+  environment:
+    TENANT_CONTENT_BUCKET_NAME: bh-tenant-content-${opt:stage, self:provider.stage}
 
 plugins:
   - serverless-webpack

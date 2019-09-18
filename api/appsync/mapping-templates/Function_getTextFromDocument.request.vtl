@@ -1,7 +1,16 @@
+#if( $util.isNull($context.identity.sub))
+    #if($util.isNull($context.identity.accountId))
+    #else
+        #set( $tenantId = $ctx.args.partitionKey)
+    #end
+#else
+    #set( $tenantId = $context.identity.claims["custom:tenantId"])
+#end
 {
   "version" : "2018-05-29",
   "operation": "Invoke",
   "payload": {
-    "imageUrl":  $util.toJson($ctx.args.imageUrl),
+    "tenantId":  "$tenantId",
+    "imageUrl":  $util.toJson($ctx.args.imageUrl)
   }
 }
